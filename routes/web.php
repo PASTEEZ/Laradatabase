@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CsmemberDataController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CsmemberDataController::class, 'index']);
+
+//Route::post('/savedata', function () {
+//    return view('childrenservice/create');
+//})->name('savedata');
+//Route::post('/create','CsmemberDataController@insert');
+Route::post('/savedataroute', [CsmemberDataController::class, 'create'])->name('saveitem');
+//::post('/create', [CsmemberDataController::class, 'insertform']);
+//Route::get('/create', 'JymemberController@create');
